@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inboxo — Email Marketing That Grows Your Revenue</title>
+<meta name="description" content="Inboxo is a done-for-you email marketing agency. Figma email design, campaigns, flows and copywriting — with one goal: growing your revenue. €518K attributed in one month for a single brand.">
+<meta property="og:title" content="Inboxo — Email Marketing That Grows Your Revenue">
+<meta property="og:description" content="Done-for-you email marketing: strategy, Figma design, campaigns, flows and copy. One goal — growing your revenue.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/logo.jpeg">
+<meta name="theme-color" content="#0F1B30">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Inboxo",
+  "description": "Done-for-you email marketing agency: strategy, Figma email design, campaign management, flows, and ad copywriting for e-commerce brands.",
+  "knowsAbout": ["Email Marketing", "Klaviyo", "Email Design", "Copywriting", "Marketing Automation"]
+}
+</script>
+<style>
+  :root{
+    /* Colour system — from the Inboxo logo */
+    --navy-900:#0F1B30;
+    --navy-800:#16243D;
+    --navy-700:#1E2F4F;
+    --navy-600:#2A3E63;
+    --navy-100:#E8ECF4;
+    --orange-500:#F5A21B;
+    --orange-400:#FFB638;
+    --orange-100:#FEF3DD;
+    --cream:#FBF8F2;
+    --white:#FFFFFF;
+    --ink:#16243D;
+    --ink-soft:#46556F;
+    --ink-faint:#5C6A84;
+    --green-600:#1E7F4F;
+    --green-100:#E2F4E9;
+
+    /* Type scale */
+    --fs-caption:.75rem;
+    --fs-small:.875rem;
+    --fs-body:1rem;
+    --fs-lead:1.1875rem;
+    --fs-h3:1.5rem;
+    --fs-h2:clamp(1.75rem,1.3rem + 2vw,2.5rem);
+    --fs-h1:clamp(2.375rem,1.6rem + 3.6vw,4rem);
+
+    /* Spacing scale: 4 8 12 16 24 32 48 64 96 128 */
+    --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem;
+    --s-6:1.5rem; --s-8:2rem; --s-12:3rem; --s-16:4rem; --s-24:6rem;
+
+    --radius-sm:8px; --radius-md:14px; --radius-lg:22px; --radius-pill:999px;
+    --shadow-1:0 1px 2px rgba(15,27,48,.06),0 2px 8px rgba(15,27,48,.06);
+    --shadow-2:0 4px 12px rgba(15,27,48,.08),0 12px 32px rgba(15,27,48,.10);
+    --shadow-3:0 8px 24px rgba(15,27,48,.14),0 24px 64px rgba(15,27,48,.16);
+    --container:72rem;
+    --font-display:"Fraunces",Georgia,serif;
+    --font-body:"Inter",system-ui,-apple-system,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  }
+  body{
+    font-family:var(--font-body);
+    font-size:var(--fs-body);
+    line-height:1.6;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;height:auto}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--orange-500);outline-offset:3px;border-radius:4px}
+  .skip-link{position:absolute;left:-9999px;top:0;background:var(--navy-800);color:#fff;padding:var(--s-3) var(--s-4);z-index:100;border-radius:0 0 var(--radius-sm) 0}
+  .skip-link:focus{left:0}
+  .scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:60;background:linear-gradient(90deg,var(--orange-500),var(--orange-400));transform:scaleX(0);transform-origin:left center}
+  .container{max-width:var(--container);margin-inline:auto;padding-inline:var(--s-6)}
+  section[id]{scroll-margin-top:88px}
+  h1,h2,h3{font-family:var(--font-display);line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
+  h1{font-size:var(--fs-h1);font-weight:600}
+  h2{font-size:var(--fs-h2);font-weight:600}
+  h3{font-size:var(--fs-h3);font-weight:600}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:var(--s-2);
+    font-size:var(--fs-caption);font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--orange-500);margin-bottom:var(--s-4);
+  }
+  .eyebrow::before{content:"";width:24px;height:2px;background:var(--orange-500);border-radius:2px}
+  .section{padding-block:var(--s-24)}
+  .section-head{max-width:44rem;margin-bottom:var(--s-12)}
+  .section-head p{margin-top:var(--s-4);font-size:var(--fs-lead);color:var(--ink-soft)}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+    font-weight:600;font-size:var(--fs-body);text-decoration:none;cursor:pointer;
+    border-radius:var(--radius-pill);padding:.875rem 1.75rem;border:2px solid transparent;
+    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+    touch-action:manipulation;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn:active{transform:translateY(0)}
+  .btn-primary{background:var(--orange-500);color:var(--navy-900);box-shadow:0 4px 14px rgba(245,162,27,.35)}
+  .btn-primary:hover{background:var(--orange-400);box-shadow:0 6px 20px rgba(245,162,27,.45)}
+  .btn-ghost-dark{border-color:rgba(255,255,255,.35);color:#fff}
+  .btn-ghost-dark:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+  .btn-ghost-light{border-color:var(--navy-800);color:var(--navy-800)}
+  .btn-ghost-light:hover{background:var(--navy-100)}
+  .btn-lg{padding:1.05rem 2.25rem;font-size:var(--fs-lead)}
+
+  /* Header */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(15,27,48,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:var(--s-6);min-height:72px}
+  .brand{display:flex;align-items:center;gap:var(--s-3);text-decoration:none;color:#fff}
+  .brand svg{flex:none}
+  .brand-name{font-family:var(--font-display);font-weight:600;font-size:1.375rem;letter-spacing:.12em}
+  .nav-links{display:flex;align-items:center;gap:var(--s-8);list-style:none}
+  .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:var(--fs-small);font-weight:500;transition:color .15s;touch-action:manipulation}
+  .nav-links a:hover{color:#fff}
+  .nav-links .nav-cta{display:none}
+  .nav .btn{padding:.625rem 1.375rem;font-size:var(--fs-small)}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:var(--s-2);color:#fff}
+  .nav-toggle svg{display:block}
+
+  /* Hero */
+  .hero{
+    background:
+      radial-gradient(1200px 600px at 80% -10%,rgba(245,162,27,.16),transparent 60%),
+      radial-gradient(900px 500px at 10% 110%,rgba(42,62,99,.55),transparent 60%),
+      var(--navy-900);
+    color:#fff;
+    padding-block:var(--s-24) var(--s-16);
+    overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s-16);align-items:center}
+  .hero h1 .accent{color:var(--orange-500);font-style:italic}
+  .hero .lead{margin-top:var(--s-6);font-size:var(--fs-lead);color:rgba(255,255,255,.82);max-width:34rem}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:var(--s-4);margin-top:var(--s-8)}
+  .hero-note{margin-top:var(--s-4);font-size:var(--fs-small);color:rgba(255,255,255,.6)}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-4);margin-top:var(--s-12);padding-top:var(--s-8);border-top:1px solid rgba(255,255,255,.12)}
+  .stat-num{font-family:var(--font-display);font-size:clamp(1.5rem,1.2rem + 1.4vw,2.25rem);font-weight:600;color:var(--orange-500);font-variant-numeric:tabular-nums}
+  .stat-label{font-size:var(--fs-small);color:rgba(255,255,255,.66);margin-top:var(--s-1)}
+  .hero-visual{position:relative}
+  .hero-visual .shot{border-radius:var(--radius-lg);box-shadow:var(--shadow-3);border:1px solid rgba(255,255,255,.14)}
+  .hero-badge{
+    position:absolute;right:-12px;top:-20px;background:var(--green-100);color:var(--green-600);
+    font-weight:700;font-size:var(--fs-small);padding:var(--s-2) var(--s-4);border-radius:var(--radius-pill);
+    box-shadow:var(--shadow-2);
+  }
+  .hero-badge-2{
+    position:absolute;left:-16px;bottom:-18px;background:var(--white);color:var(--navy-800);
+    font-weight:600;font-size:var(--fs-small);padding:var(--s-3) var(--s-4);border-radius:var(--radius-md);
+    box-shadow:var(--shadow-2);display:flex;align-items:center;gap:var(--s-2);
+  }
+  .hero-badge-2 strong{color:var(--orange-500);font-family:var(--font-display);font-size:1.25rem}
+
+  /* 3D scroll-driven intro (WebGL). Tall section; the stage sticks while the
+     scene is scrubbed by scroll. Hidden entirely when WebGL/motion unsupported. */
+  .hero3d{position:relative;height:340vh;background:var(--navy-900);display:none}
+  .hero3d.is-on{display:block}
+  .hero3d-stage{position:sticky;top:0;height:100vh;overflow:hidden}
+  #webgl{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero3d-overlay{
+    position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:var(--s-6);pointer-events:none;color:#fff;
+  }
+  .hero3d-overlay .eyebrow{color:var(--orange-400)}
+  .hero3d-display{font-family:var(--font-display);font-weight:600;line-height:1.12;letter-spacing:-.01em;font-size:var(--fs-h1);max-width:18ch;margin-bottom:var(--s-4);text-wrap:balance}
+  .hero3d-display .accent{color:var(--orange-500);font-style:italic}
+  .hero3d-overlay p{font-size:var(--fs-lead);color:rgba(255,255,255,.85);max-width:34rem}
+  .hero3d-cue{
+    position:absolute;left:50%;bottom:var(--s-8);transform:translateX(-50%);z-index:3;
+    color:rgba(255,255,255,.7);font-size:var(--fs-small);letter-spacing:.1em;text-transform:uppercase;
+    display:flex;flex-direction:column;align-items:center;gap:var(--s-2);
+  }
+  .hero3d-cue svg{animation:cuebob 1.8s ease-in-out infinite}
+  @keyframes cuebob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+  @media (prefers-reduced-motion:reduce){.hero3d-cue svg{animation:none}}
+
+  /* Brand marquee */
+  .brands{background:var(--navy-800);padding-block:var(--s-6);border-top:1px solid rgba(255,255,255,.06)}
+  .brands p{color:rgba(255,255,255,.5);font-size:var(--fs-caption);letter-spacing:.14em;text-transform:uppercase;text-align:center;margin-bottom:var(--s-4);font-weight:600}
+  .marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .marquee-track{display:flex;gap:var(--s-16);width:max-content;animation:scroll 36s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  .marquee-track span{color:rgba(255,255,255,.55);font-weight:600;font-size:1.0625rem;white-space:nowrap;letter-spacing:.02em}
+  @media (prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}}
+
+  /* Results */
+  .results{background:var(--white)}
+  .results-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-6)}
+  .result-card{
+    background:var(--cream);border-radius:var(--radius-lg);overflow:hidden;
+    box-shadow:var(--shadow-1);border:1px solid var(--navy-100);
+    display:flex;flex-direction:column;
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .result-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+  .result-card img{border-bottom:1px solid var(--navy-100);width:100%;object-fit:cover}
+  .result-body{padding:var(--s-6)}
+  .result-metric{font-family:var(--font-display);font-size:2rem;font-weight:600;color:var(--navy-800);font-variant-numeric:tabular-nums}
+  .result-metric .up{color:var(--green-600);font-size:1.125rem;font-family:var(--font-body);font-weight:700;vertical-align:middle;margin-left:var(--s-2);background:var(--green-100);padding:.125rem .625rem;border-radius:var(--radius-pill)}
+  .result-body p{color:var(--ink-soft);font-size:var(--fs-small);margin-top:var(--s-2)}
+  .results-row{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-6);margin-top:var(--s-6)}
+  .mini-card{background:var(--cream);border:1px solid var(--navy-100);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-1)}
+  .mini-card figcaption{padding:var(--s-3) var(--s-4);font-size:var(--fs-small);color:var(--ink-soft)}
+  .mini-card strong{color:var(--navy-800)}
+  .results-foot{margin-top:var(--s-8);text-align:center;color:var(--ink-faint);font-size:var(--fs-small)}
+
+  /* Services */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-6)}
+  .service-card{
+    background:var(--white);border-radius:var(--radius-lg);padding:var(--s-8);
+    border:1px solid var(--navy-100);box-shadow:var(--shadow-1);
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+  .service-icon{
+    width:48px;height:48px;border-radius:var(--radius-md);background:var(--orange-100);
+    display:flex;align-items:center;justify-content:center;margin-bottom:var(--s-6);color:var(--orange-500);
+  }
+  .service-card h3{font-size:1.25rem;margin-bottom:var(--s-3)}
+  .service-card p{color:var(--ink-soft);font-size:var(--fs-small)}
+
+  /* Process */
+  .process{background:var(--navy-900);color:#fff}
+  .process .section-head p{color:rgba(255,255,255,.72)}
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s-6);counter-reset:step}
+  .step{position:relative;padding-top:var(--s-6)}
+  .step::before{
+    counter-increment:step;content:"0" counter(step);
+    font-family:var(--font-display);font-size:2.5rem;font-weight:600;color:var(--orange-500);
+    display:block;margin-bottom:var(--s-3);
+  }
+  .step h3{font-size:1.125rem;margin-bottom:var(--s-2)}
+  .step p{font-size:var(--fs-small);color:rgba(255,255,255,.68)}
+  .step::after{content:"";position:absolute;top:var(--s-8);left:0;right:var(--s-6);height:1px;background:rgba(255,255,255,.14)}
+
+  /* FAQ */
+  .faq-list{max-width:46rem}
+  .faq-item{border-bottom:1px solid var(--navy-100);background:transparent}
+  .faq-item summary{
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:var(--s-4);
+    padding:var(--s-6) var(--s-2);font-weight:600;font-size:var(--fs-lead);touch-action:manipulation;
+  }
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";font-family:var(--font-display);font-size:1.75rem;color:var(--orange-500);flex:none;transition:transform .2s}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item p{padding:0 var(--s-2) var(--s-6);color:var(--ink-soft);max-width:40rem}
+
+  /* CTA */
+  .cta{background:var(--navy-900);color:#fff;text-align:center}
+  .cta .inner{max-width:42rem;margin-inline:auto}
+  .cta h2{font-size:var(--fs-h1)}
+  .cta h2 .accent{color:var(--orange-500);font-style:italic}
+  .cta p{margin-top:var(--s-6);font-size:var(--fs-lead);color:rgba(255,255,255,.78)}
+  .cta .btn{margin-top:var(--s-8)}
+  .cta .small{margin-top:var(--s-4);font-size:var(--fs-small);color:rgba(255,255,255,.55)}
+
+  /* Footer */
+  .site-footer{background:var(--navy-900);color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.08);padding-block:var(--s-8)}
+  .footer-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s-4)}
+  .site-footer a{color:rgba(255,255,255,.8);text-decoration:none}
+  .site-footer a:hover{color:#fff;text-decoration:underline}
+  .site-footer .brand-name{font-size:1rem}
+
+  /* Reveal on scroll */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+  /* Responsive */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;gap:var(--s-12)}
+    .hero-visual{max-width:34rem}
+    .results-featured{grid-template-columns:1fr}
+    .results-row{grid-template-columns:repeat(2,1fr)}
+    .services-grid{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr);gap:var(--s-8) var(--s-6)}
+  }
+  @media (max-width:680px){
+    .section{padding-block:var(--s-16)}
+    .nav-links{
+      display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;
+      background:var(--navy-900);padding:var(--s-6);gap:var(--s-6);border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{font-size:var(--fs-body)}
+    .nav-links .nav-cta{display:inline-flex}
+    .nav-toggle{display:block}
+    .nav>.btn{display:none}
+    .hero{padding-block:var(--s-16) var(--s-12)}
+    .hero-stats{grid-template-columns:1fr 1fr 1fr;gap:var(--s-3)}
+    .services-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .results-row{grid-template-columns:1fr}
+    .hero-badge{right:0}
+    .hero-badge-2{left:0}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#" aria-label="Inboxo — home">
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="6"  y="22" width="7" height="20" rx="1.5" fill="#F5A21B"/>
+        <rect x="16" y="12" width="7" height="30" rx="1.5" fill="#F5A21B"/>
+        <rect x="26" y="17" width="7" height="25" rx="1.5" fill="#F5A21B"/>
+        <rect x="36" y="6"  width="7" height="36" rx="1.5" fill="#F5A21B"/>
+        <path d="M4 34 L15 26 L24 31 L40 14" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M33 12 L42 12 L42 21" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="rotate(3 40 14)"/>
+      </svg>
+      <span class="brand-name">INBOXO</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#results">Results</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="btn btn-primary nav-cta" href="#contact">Book a free audit</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary" href="#contact">Book a free audit</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 3D SCROLL INTRO (WebGL) -->
+  <section class="hero3d" id="hero3d" aria-label="Inboxo intro animation">
+    <div class="hero3d-stage" id="hero3dStage">
+      <div class="hero3d-overlay" id="hero3dOverlay">
+        <p class="eyebrow">Done-for-you email marketing</p>
+        <p class="hero3d-display">Every email you send is <span class="accent">money waiting to open.</span></p>
+        <p>Scroll to see what Inboxo does with it.</p>
+      </div>
+      <div class="hero3d-cue" id="hero3dCue" aria-hidden="true">
+        <span>Scroll</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Done-for-you email marketing</p>
+        <h1>Your email list is sitting on revenue. <span class="accent">We collect it.</span></h1>
+        <p class="lead">Inboxo handles everything — strategy, Figma-designed emails, campaigns, flows and ad copy — so your brand earns more from every subscriber. One goal: <strong>growing your revenue.</strong></p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-lg" href="#contact">Book a free email audit</a>
+          <a class="btn btn-ghost-dark btn-lg" href="#results">See real results</a>
+        </div>
+        <p class="hero-note">Free 20-minute audit of your account. No retainer pitch, no obligation.</p>
+        <div class="hero-stats">
+          <div><p class="stat-num" data-count="2.7" data-prefix="$" data-suffix="M+" data-decimals="1">$2.7M+</p><p class="stat-label">email-attributed revenue</p></div>
+          <div><p class="stat-num" data-count="249" data-prefix="+" data-suffix="%">+249%</p><p class="stat-label">best attributed growth</p></div>
+          <div><p class="stat-num" data-count="9" data-suffix="+">9+</p><p class="stat-label">e-commerce brands scaled</p></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <span class="hero-badge">↗ +249.7% attributed revenue</span>
+        <img class="shot" src="assets/result-3.jpeg" width="745" height="392" fetchpriority="high"
+             alt="Klaviyo growth overview: €823,891 total revenue, up 124.9% vs previous period, with €518K (62.8%) attributed to email, up 249.7%.">
+        <span class="hero-badge-2"><strong>62.8%</strong> of store revenue from email</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="brands" aria-label="Brands we have worked with">
+    <p>Trusted by e-commerce brands across Europe</p>
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>MozaiekTegel</span><span>OH MY DOTZ</span><span>SNUUZU</span><span>STIPT</span><span>ZH</span><span>Candywrap.nl</span><span>DailyCompress</span><span>DEK•BED Discounter</span><span>Deurbeslag-expert</span>
+        <span aria-hidden="true">MozaiekTegel</span><span aria-hidden="true">OH MY DOTZ</span><span aria-hidden="true">SNUUZU</span><span aria-hidden="true">STIPT</span><span aria-hidden="true">ZH</span><span aria-hidden="true">Candywrap.nl</span><span aria-hidden="true">DailyCompress</span><span aria-hidden="true">DEK•BED Discounter</span><span aria-hidden="true">Deurbeslag-expert</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results section" id="results">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Proof, not promises</p>
+        <h2>Real dashboards. Real revenue.</h2>
+        <p>Screenshots straight from our clients’ Klaviyo accounts. Attributed revenue means money the emails themselves generated.</p>
+      </div>
+
+      <div class="results-featured">
+        <article class="result-card reveal">
+          <img src="assets/result-4.jpeg" loading="lazy" width="673" height="345"
+               alt="Klaviyo dashboard: $2,041,041 total revenue with $1.17M (57.4%) attributed to email, up 24.4%.">
+          <div class="result-body">
+            <p class="result-metric">$1.17M <span class="up">↗ 57.4% of revenue</span></p>
+            <p>Email drove over half of this store’s $2M month — built on flows and weekly campaigns.</p>
+          </div>
+        </article>
+        <article class="result-card reveal">
+          <img src="assets/result-3.jpeg" loading="lazy" width="745" height="392"
+               alt="Klaviyo dashboard: €823,891 total revenue, with €518K attributed to email, up 249.7% vs previous period.">
+          <div class="result-body">
+            <p class="result-metric">€518K <span class="up">↗ +249.7%</span></p>
+            <p>Attributed revenue up 249.7% in a single month after we rebuilt the campaign calendar.</p>
+          </div>
+        </article>
+        <article class="result-card reveal">
+          <img src="assets/result-1.jpeg" loading="lazy" width="753" height="397"
+               alt="Klaviyo dashboard: $3,172,803 total revenue, up 36.6%, with $587K attributed to email, up 66.4%.">
+          <div class="result-body">
+            <p class="result-metric">$587K <span class="up">↗ +66.4%</span></p>
+            <p>A $3.17M month where email attribution grew 66.4% — without sending more emails.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="results-row">
+        <figure class="mini-card reveal">
+          <img src="assets/result-7.jpeg" loading="lazy" width="753" height="397" alt="Klaviyo dashboard: $547,805 total revenue with $136K attributed to email, up 30.1%.">
+          <figcaption><strong>$136K attributed</strong> · +30.1%</figcaption>
+        </figure>
+        <figure class="mini-card reveal">
+          <img src="assets/result-5.jpeg" loading="lazy" width="745" height="392" alt="Klaviyo dashboard: €437,979 total revenue with €137K (31.4%) attributed to email, up 54.4%.">
+          <figcaption><strong>€137K attributed</strong> · +54.4%</figcaption>
+        </figure>
+        <figure class="mini-card reveal">
+          <img src="assets/result-6.jpeg" loading="lazy" width="743" height="391" alt="Klaviyo dashboard: $468,717 total revenue with $107K attributed to email, up 15.2%.">
+          <figcaption><strong>$107K attributed</strong> · +15.2%</figcaption>
+        </figure>
+        <figure class="mini-card reveal">
+          <img src="assets/result-2.jpeg" loading="lazy" width="743" height="391" alt="Klaviyo dashboard: $367,156 total revenue with $76K attributed to email, up 57.4%.">
+          <figcaption><strong>$76K attributed</strong> · +57.4%</figcaption>
+        </figure>
+      </div>
+      <p class="results-foot">All screenshots are unedited Klaviyo growth overviews from client accounts.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Everything email, handled</p>
+        <h2>From Figma design to send button</h2>
+        <p>You get a full email team — strategist, designer and copywriter — without hiring one.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M3 9l9 6 9-6"/></svg></div>
+          <h3>Email strategy</h3>
+          <p>A revenue-first plan for your list: segmentation, campaign calendar, and the flows your store is missing.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+          <h3>Figma email design</h3>
+          <p>Custom-designed emails that look like your brand at its best — built in Figma, coded to render perfectly everywhere.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+          <h3>Campaign management</h3>
+          <p>We plan, write, design, test and send every campaign. You approve; we handle the rest, week after week.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 14h6v6h-6z"/><path d="M10 7h7a3 3 0 013 3v1M14 17H7a3 3 0 01-3-3v-1"/></svg></div>
+          <h3>Flows &amp; automation</h3>
+          <p>Welcome, abandoned cart, browse, post-purchase and win-back flows that sell while you sleep.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5z"/></svg></div>
+          <h3>Ad &amp; email copywriting</h3>
+          <p>Conversion copy for emails and ads — hooks, angles and offers tested against what actually sells.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg></div>
+          <h3>Reporting &amp; optimisation</h3>
+          <p>Monthly revenue reports in plain language, plus continuous A/B testing of subject lines, offers and send times.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process section" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>Live in 14 days</h2>
+        <p>A simple, proven path from first call to revenue on the board.</p>
+      </div>
+      <ol class="steps" style="list-style:none">
+        <li class="step reveal"><h3>Free audit</h3><p>We dig into your Klaviyo or ESP account and show you exactly where revenue is leaking.</p></li>
+        <li class="step reveal"><h3>Strategy</h3><p>You get a campaign calendar and flow map built around your products and margins.</p></li>
+        <li class="step reveal"><h3>Design &amp; copy</h3><p>Figma designs and conversion copy, approved by you before anything goes out.</p></li>
+        <li class="step reveal"><h3>Launch</h3><p>Campaigns and flows go live. Deliverability, testing and timing — handled.</p></li>
+        <li class="step reveal"><h3>Grow</h3><p>We track attributed revenue weekly and double down on what’s working.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Questions</p>
+        <h2>Before you ask</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>How fast will we see results?</summary>
+          <p>Most brands see attributed revenue lift within the first 30 days — flows start converting as soon as they’re live. The dashboards above show single-month snapshots from real client accounts.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Which platforms do you work with?</summary>
+          <p>We work primarily in Klaviyo (every screenshot on this page is a Klaviyo account), and we’re comfortable in Mailchimp, Omnisend and ActiveCampaign too.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>What does the free audit include?</summary>
+          <p>We review your flows, campaign history, segmentation and deliverability, then send you a short video walking through the biggest revenue opportunities — whether you work with us or not.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Do you only do email?</summary>
+          <p>Email is the core, but we also write ad copy and design creatives so your acquisition and retention speak the same language.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>How is pricing structured?</summary>
+          <p>A flat monthly retainer scoped to your sending volume and store size — no percentage of revenue, no long lock-in. We’ll quote you after the audit.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta section" id="contact">
+    <div class="container inner">
+      <p class="eyebrow" style="justify-content:center;display:flex">One goal</p>
+      <h2>Let’s grow <span class="accent">your</span> revenue next.</h2>
+      <p>Get a free 20-minute audit of your email account. We’ll show you the revenue you’re leaving on the table — and exactly how we’d collect it.</p>
+      <a class="btn btn-primary btn-lg" href="mailto:prajwalbeast22@gmail.com?subject=Free%20email%20audit%20for%20my%20brand&body=Hi%20Inboxo%2C%0A%0ABrand%3A%20%0AWebsite%3A%20%0AEmail%20platform%3A%20%0AMonthly%20revenue%20(roughly)%3A%20%0A%0AI'd%20like%20a%20free%20audit.">Book my free audit</a>
+      <p class="small">Or email us directly: <a href="mailto:prajwalbeast22@gmail.com" style="color:var(--orange-500)">prajwalbeast22@gmail.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <a class="brand" href="#" aria-label="Inboxo — back to top">
+      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="6" y="22" width="7" height="20" rx="1.5" fill="#F5A21B"/>
+        <rect x="16" y="12" width="7" height="30" rx="1.5" fill="#F5A21B"/>
+        <rect x="26" y="17" width="7" height="25" rx="1.5" fill="#F5A21B"/>
+        <rect x="36" y="6" width="7" height="36" rx="1.5" fill="#F5A21B"/>
+        <path d="M4 34 L15 26 L24 31 L40 14" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-name">INBOXO</span>
+    </a>
+    <p>Email marketing with one goal: growing your revenue.</p>
+    <p>© <span id="year">2026</span> Inboxo. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- GSAP (CDN, no build step). If blocked, the site still works — CSS shows the finished state. -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/ScrollTrigger.min.js"></script>
+<script>
+  // Mobile nav
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  links.addEventListener('click', e => {
+    if (e.target.tagName === 'A') { links.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasGSAP = typeof window.gsap !== 'undefined';
+
+  // Count-up for hero stats (used by both GSAP and fallback paths)
+  function countUp(el, withTween) {
+    const target = parseFloat(el.dataset.count);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const render = v => el.textContent = prefix + v.toFixed(decimals) + suffix;
+    if (withTween && hasGSAP) {
+      const obj = { v: 0 };
+      gsap.to(obj, { v: target, duration: 1.6, ease: 'power2.out', onUpdate: () => render(obj.v) });
+    } else { render(target); }
+  }
+
+  if (hasGSAP && !reduceMotion) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero stat count-up when the hero scrolls into view
+    ScrollTrigger.create({
+      trigger: '.hero-stats', start: 'top 85%', once: true,
+      onEnter: () => document.querySelectorAll('.stat-num[data-count]').forEach(el => countUp(el, true))
+    });
+
+    // Scroll-triggered section reveals
+    gsap.set('.reveal', { opacity: 0, y: 18 });
+    ScrollTrigger.batch('.reveal', {
+      start: 'top 88%',
+      onEnter: els => gsap.to(els, { opacity: 1, y: 0, duration: .7, stagger: .1, ease: 'power2.out', overwrite: true })
+    });
+
+    // Scroll progress bar
+    gsap.to('#scrollProgress', {
+      scaleX: 1, ease: 'none',
+      scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: .3 }
+    });
+  } else {
+    // No GSAP or reduced motion: reveal everything immediately.
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    document.querySelectorAll('.stat-num[data-count]').forEach(el => countUp(el, false));
+  }
+</script>
+
+<!-- ===== 3D scroll-driven intro (Three.js + GSAP ScrollTrigger) ===== -->
+<script type="module">
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse = window.matchMedia('(max-width: 680px)').matches;
+
+  // Feature-detect WebGL before loading Three.js. If unsupported, the .hero3d
+  // section stays display:none and the site starts at the normal hero.
+  function webglOK() {
+    try {
+      const c = document.createElement('canvas');
+      return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl')));
+    } catch (e) { return false; }
+  }
+
+  if (reduceMotion || !webglOK() || typeof window.gsap === 'undefined') {
+    // Fallback: skip the 3D intro entirely.
+  } else {
+    try {
+      const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
+      const { gsap, ScrollTrigger } = window;
+      gsap.registerPlugin(ScrollTrigger);
+
+      const section = document.getElementById('hero3d');
+      const stage = document.getElementById('hero3dStage');
+      const overlay = document.getElementById('hero3dOverlay');
+      const cue = document.getElementById('hero3dCue');
+      section.classList.add('is-on');
+
+      // ---- Renderer / scene / camera ----
+      // Let Three create+own the canvas (avoids any pre-existing 2D context on it).
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      const canvas = renderer.domElement;
+      canvas.id = 'webgl';
+      stage.prepend(canvas);
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.set(0, 0, 9);
+
+      // ---- Lighting (three-point + ambient) ----
+      scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+      const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(5, 8, 6); scene.add(key);
+      const fill = new THREE.DirectionalLight(0xbcd2ff, 0.7); fill.position.set(-6, 2, 4); scene.add(fill);
+      const rim = new THREE.DirectionalLight(0xffb638, 1.1); rim.position.set(0, -3, -6); scene.add(rim);
+
+      const NAVY = 0x16243d, NAVY_D = 0x0f1b30, ORANGE = 0xf5a21b, CREAM = 0xfbf8f2;
+
+      // ---- Envelope group ----
+      const envelope = new THREE.Group();
+      scene.add(envelope);
+
+      const bodyMat  = new THREE.MeshStandardMaterial({ color: NAVY,   roughness: 0.55, metalness: 0.1 });
+      const bodyMat2 = new THREE.MeshStandardMaterial({ color: NAVY_D, roughness: 0.6,  metalness: 0.1 });
+      const flapMat  = new THREE.MeshStandardMaterial({ color: ORANGE, roughness: 0.4,  metalness: 0.15, side: THREE.DoubleSide });
+
+      const W = 4.4, H = 2.9, D = 0.28;
+      // Envelope back panel
+      const back = new THREE.Mesh(new THREE.BoxGeometry(W, H, D), bodyMat2);
+      envelope.add(back);
+      // Front pocket (a shallow box in front, leaves a slot at top for the letter)
+      const front = new THREE.Mesh(new THREE.BoxGeometry(W, H * 0.62, D * 0.6), bodyMat);
+      front.position.set(0, -H * 0.19, D * 0.5);
+      envelope.add(front);
+
+      // Inboxo mark on the front pocket via canvas texture
+      const markCanvas = document.createElement('canvas'); markCanvas.width = markCanvas.height = 256;
+      const mc = markCanvas.getContext('2d');
+      mc.fillStyle = '#f5a21b';
+      [[60,150,28,80],[110,110,28,120],[160,128,28,102],[210,90,28,140]].forEach(([x,y,w,h]) => mc.fillRect(x,y,w,h));
+      mc.strokeStyle = '#ffffff'; mc.lineWidth = 14; mc.lineCap = 'round'; mc.lineJoin = 'round';
+      mc.beginPath(); mc.moveTo(40,180); mc.lineTo(110,140); mc.lineTo(150,160); mc.lineTo(220,70); mc.stroke();
+      const markTex = new THREE.CanvasTexture(markCanvas); markTex.colorSpace = THREE.SRGBColorSpace;
+      const mark = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 1.1),
+        new THREE.MeshBasicMaterial({ map: markTex, transparent: true }));
+      mark.position.set(0, -H * 0.19, D * 0.5 + 0.32); envelope.add(mark);
+
+      // Flap (pivots from the top edge to open)
+      const flapPivot = new THREE.Group();
+      flapPivot.position.set(0, H / 2, D * 0.5);
+      envelope.add(flapPivot);
+      const flapShape = new THREE.Shape();
+      flapShape.moveTo(-W / 2, 0); flapShape.lineTo(W / 2, 0); flapShape.lineTo(0, -H * 0.6); flapShape.lineTo(-W / 2, 0);
+      const flap = new THREE.Mesh(new THREE.ShapeGeometry(flapShape), flapMat);
+      flapPivot.add(flap);
+
+      // Letter (the "money waiting" — a cream card with a growth chart) hidden inside
+      const letterCanvas = document.createElement('canvas'); letterCanvas.width = 1024; letterCanvas.height = 640;
+      const lc = letterCanvas.getContext('2d');
+      lc.fillStyle = '#ffffff'; lc.fillRect(0, 0, 1024, 640);
+      lc.fillStyle = '#0f1b30'; lc.font = 'bold 54px Inter, sans-serif'; lc.fillText('Total revenue', 60, 110);
+      lc.fillStyle = '#16243d'; lc.font = 'bold 96px Georgia, serif'; lc.fillText('€823,891', 60, 220);
+      lc.fillStyle = '#1e7f4f'; lc.font = 'bold 40px Inter, sans-serif'; lc.fillText('▲ +249.7% attributed to email', 60, 290);
+      // mini bars
+      const bars = [120,180,150,240,210,300,260,360,330,420,470,540];
+      bars.forEach((h, i) => { lc.fillStyle = i % 2 ? '#2f9e63' : '#1e5fbf'; lc.fillRect(70 + i * 76, 600 - h, 48, h); });
+      const letterTex = new THREE.CanvasTexture(letterCanvas); letterTex.colorSpace = THREE.SRGBColorSpace;
+      const letter = new THREE.Mesh(
+        new THREE.PlaneGeometry(W * 0.86, H * 0.78),
+        new THREE.MeshStandardMaterial({ map: letterTex, roughness: 0.85, metalness: 0 })
+      );
+      letter.position.set(0, 0, D * 0.2);
+      letter.scale.setScalar(0.1);
+      envelope.add(letter);
+
+      // ---- Particle field (drifting "messages") ----
+      const COUNT = coarse ? 280 : 700;
+      const pGeo = new THREE.BufferGeometry();
+      const pos = new Float32Array(COUNT * 3);
+      for (let i = 0; i < COUNT; i++) {
+        pos[i*3]   = (Math.random() - 0.5) * 28;
+        pos[i*3+1] = (Math.random() - 0.5) * 18;
+        pos[i*3+2] = (Math.random() - 0.5) * 20 - 4;
+      }
+      pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({
+        color: ORANGE, size: 0.07, transparent: true, opacity: 0.6, depthWrite: false
+      }));
+      scene.add(particles);
+
+      // ---- Resize ----
+      function resize() {
+        const w = section.clientWidth, h = window.innerHeight;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h; camera.updateProjectionMatrix();
+      }
+      resize();
+      window.addEventListener('resize', resize);
+      renderer.render(scene, camera); // paint first frame immediately (before rAF)
+
+      // ---- Scroll-driven state (the 3D scrolling animation) ----
+      const state = { p: 0 };
+      ScrollTrigger.create({
+        trigger: section, start: 'top top', end: 'bottom bottom', scrub: 0.6,
+        onUpdate: self => { state.p = self.progress; }
+      });
+      // Overlay text + cue fade as the envelope takes over
+      gsap.to(overlay, { opacity: 0, ease: 'none',
+        scrollTrigger: { trigger: section, start: '18% top', end: '42% top', scrub: true } });
+      gsap.to(cue, { opacity: 0, ease: 'none',
+        scrollTrigger: { trigger: section, start: 'top top', end: '12% top', scrub: true } });
+
+      const clock = new THREE.Clock();
+      const lerp = (a, b, t) => a + (b - a) * t;
+      const clamp01 = v => Math.min(1, Math.max(0, v));
+      // ease segments of progress into 0..1
+      const seg = (p, a, b) => clamp01((p - a) / (b - a));
+
+      // Debug hook for verification (safe to leave; tiny).
+      window.__inboxo3d = {
+        ok: true,
+        contextValid: !!renderer.getContext(),
+        sceneChildren: scene.children.length,
+        particles: COUNT,
+        frames: 0
+      };
+
+      renderer.setAnimationLoop(() => {
+        const t = clock.getElapsedTime();
+        const p = state.p;
+        window.__inboxo3d.frames++;
+
+        // 1) gentle idle spin + scroll-driven turn to face front
+        envelope.rotation.y = Math.sin(t * 0.3) * 0.15 + lerp(-0.6, 0, seg(p, 0, 0.4));
+        envelope.rotation.x = lerp(0.18, 0.0, seg(p, 0, 0.4)) + Math.sin(t * 0.4) * 0.02;
+        envelope.position.y = Math.sin(t * 0.6) * 0.06;
+
+        // 2) camera pushes in
+        camera.position.z = lerp(9, 6.2, seg(p, 0.05, 0.55));
+
+        // 3) flap opens
+        flapPivot.rotation.x = lerp(0, Math.PI * 0.92, seg(p, 0.3, 0.58));
+
+        // 4) letter rises out, scales up, tilts to face camera
+        const ls = seg(p, 0.5, 0.92);
+        letter.scale.setScalar(lerp(0.1, 1, ls));
+        letter.position.y = lerp(0, H * 0.62, ls);
+        letter.position.z = lerp(D * 0.2, 1.6, ls);
+
+        // 5) particles drift + slight parallax with scroll
+        particles.rotation.y = t * 0.02;
+        particles.position.y = -p * 2.2;
+        particles.material.opacity = 0.6 * (1 - seg(p, 0.7, 1));
+
+        renderer.render(scene, camera);
+      });
+    } catch (err) {
+      console.warn('3D intro failed to load; using standard hero.', err);
+      window.__inboxo3d = { ok: false, error: String(err) };
+      document.getElementById('hero3d').classList.remove('is-on');
+    }
+  }
+</script>
+</body>
+</html>
