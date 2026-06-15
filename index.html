@@ -284,6 +284,11 @@
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+  /* GSAP controls reveals when active — drop the CSS transition so they don't double-animate */
+  html.gsap-active .reveal{transition:none}
+  /* SplitText needs predictable wrapping (text-wrap:balance interferes with line splitting) */
+  .is-split{text-wrap:normal}
+  .gline{will-change:transform}
 
   /* ===== Responsive ===== */
 
@@ -624,11 +629,12 @@
   </div>
 </footer>
 
-<!-- GSAP (CDN, no build step). If blocked, the site still works — CSS shows the finished state. -->
+<!-- GSAP + ScrollTrigger + SplitText (CDN, no build step, all plugins free). If blocked, CSS shows the finished state. -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/SplitText.min.js"></script>
 <script>
-  // Mobile nav
+  // ----- Mobile nav -----
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
   toggle.addEventListener('click', () => {
@@ -639,50 +645,110 @@
   links.addEventListener('click', e => {
     if (e.target.tagName === 'A') { links.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
   });
-
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // ----- Count-up helper (shared by animated + fallback paths) -----
   const hasGSAP = typeof window.gsap !== 'undefined';
-
-  // Count-up for hero stats (used by both GSAP and fallback paths)
-  function countUp(el, withTween) {
+  function countUp(el, animate) {
     const target = parseFloat(el.dataset.count);
     const decimals = parseInt(el.dataset.decimals || '0', 10);
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
+    const prefix = el.dataset.prefix || '', suffix = el.dataset.suffix || '';
     const render = v => el.textContent = prefix + v.toFixed(decimals) + suffix;
-    if (withTween && hasGSAP) {
-      const obj = { v: 0 };
-      gsap.to(obj, { v: target, duration: 1.6, ease: 'power2.out', onUpdate: () => render(obj.v) });
-    } else { render(target); }
+    if (animate && hasGSAP) {
+      const o = { v: 0 };
+      gsap.to(o, { v: target, duration: 1.6, ease: 'power2.out', onUpdate: () => render(o.v) });
+    } else render(target);
   }
 
-  if (hasGSAP && !reduceMotion) {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Hero stat count-up when the hero scrolls into view
-    ScrollTrigger.create({
-      trigger: '.hero-stats', start: 'top 85%', once: true,
-      onEnter: () => document.querySelectorAll('.stat-num[data-count]').forEach(el => countUp(el, true))
-    });
-
-    // Scroll-triggered section reveals
-    gsap.set('.reveal', { opacity: 0, y: 18 });
-    ScrollTrigger.batch('.reveal', {
-      start: 'top 88%',
-      onEnter: els => gsap.to(els, { opacity: 1, y: 0, duration: .7, stagger: .1, ease: 'power2.out', overwrite: true })
-    });
-
-    // Scroll progress bar
-    gsap.to('#scrollProgress', {
-      scaleX: 1, ease: 'none',
-      scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: .3 }
-    });
-  } else {
-    // No GSAP or reduced motion: reveal everything immediately.
+  if (!hasGSAP) {
+    // CDN blocked: show the finished state, no motion.
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
     document.querySelectorAll('.stat-num[data-count]').forEach(el => countUp(el, false));
+  } else {
+    gsap.registerPlugin(ScrollTrigger);
+    const hasSplit = typeof window.SplitText !== 'undefined';
+    if (hasSplit) gsap.registerPlugin(SplitText);
+    document.documentElement.classList.add('gsap-active');
+    ScrollTrigger.config({ ignoreMobileResize: true }); // avoid address-bar resize jank
+
+    // matchMedia keeps reduced-motion / mobile / desktop variants clean and auto-reverting.
+    const mm = gsap.matchMedia();
+    mm.add({
+      reduce: '(prefers-reduced-motion: reduce)',
+      desktop: '(min-width: 861px) and (pointer: fine)'
+    }, (ctx) => {
+      const { reduce, desktop } = ctx.conditions;
+
+      // --- Reduced motion: reveal everything instantly, no transforms ---
+      if (reduce) {
+        gsap.set('.reveal', { clearProps: 'all' });
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+        document.querySelectorAll('.stat-num[data-count]').forEach(el => countUp(el, false));
+        return;
+      }
+
+      // --- Scroll progress bar ---
+      gsap.to('#scrollProgress', { scaleX: 1, ease: 'none',
+        scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.3 } });
+
+      // --- Refined, eased scroll reveals (batched for performance) ---
+      gsap.set('.reveal', { opacity: 0, y: 26 });
+      ScrollTrigger.batch('.reveal', {
+        start: 'top 86%',
+        onEnter: b => gsap.to(b, { opacity: 1, y: 0, duration: 0.9, stagger: 0.09, ease: 'power3.out', overwrite: true })
+      });
+
+      // --- Hero stat count-up ---
+      ScrollTrigger.create({ trigger: '.hero-stats', start: 'top 85%', once: true,
+        onEnter: () => document.querySelectorAll('.stat-num[data-count]').forEach(el => countUp(el, true)) });
+
+      // --- Hero secondary content fades up on load (independent of SplitText) ---
+      gsap.from('.hero .lead',     { autoAlpha: 0, y: 18, duration: 0.8, ease: 'power3.out', delay: 0.4 });
+      gsap.from('.hero-ctas .btn', { autoAlpha: 0, y: 16, duration: 0.6, stagger: 0.1, ease: 'power3.out', delay: 0.6 });
+      gsap.from('.hero-note',      { autoAlpha: 0, duration: 0.6, delay: 0.85 });
+
+      // --- SplitText masked line reveals: headline on load + headings on scroll ---
+      if (hasSplit) {
+        gsap.set('.hero h1', { autoAlpha: 0 }); // avoid flash before fonts/split are ready
+        document.fonts.ready.then(() => {
+          const h1 = document.querySelector('.hero h1');
+          if (h1) {
+            h1.classList.add('is-split');
+            const s = SplitText.create(h1, { type: 'lines', mask: 'lines', linesClass: 'gline' });
+            gsap.set(h1, { autoAlpha: 1 });
+            gsap.from(s.lines, { yPercent: 120, duration: 1, stagger: 0.12, ease: 'expo.out' });
+          }
+          document.querySelectorAll('.section-head h2, .cta h2').forEach(h => {
+            h.classList.add('is-split');
+            const sp = SplitText.create(h, { type: 'lines', mask: 'lines', linesClass: 'gline' });
+            gsap.from(sp.lines, { yPercent: 115, duration: 0.85, stagger: 0.1, ease: 'expo.out',
+              scrollTrigger: { trigger: h, start: 'top 86%' } });
+          });
+          ScrollTrigger.refresh(); // line splits changed layout heights
+        });
+      }
+
+      // --- Desktop + fine-pointer only: parallax depth + magnetic CTAs ---
+      if (desktop) {
+        gsap.to('.hero-visual .shot', { yPercent: -7, ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+        gsap.fromTo('.hero-badge',   { yPercent: 18 },  { yPercent: -28, ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+        gsap.fromTo('.hero-badge-2', { yPercent: -10 }, { yPercent: 26, ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+          const xT = gsap.quickTo(btn, 'x', { duration: 0.45, ease: 'power3' });
+          const yT = gsap.quickTo(btn, 'y', { duration: 0.45, ease: 'power3' });
+          btn.addEventListener('pointermove', e => {
+            const r = btn.getBoundingClientRect();
+            xT((e.clientX - (r.left + r.width / 2)) * 0.35);
+            yT((e.clientY - (r.top + r.height / 2)) * 0.5);
+          });
+          btn.addEventListener('pointerleave', () => { xT(0); yT(0); });
+        });
+      }
+    });
   }
 </script>
 
